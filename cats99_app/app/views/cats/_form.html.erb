@@ -1,0 +1,45 @@
+
+
+<%#= button_to "New", action: "create" %>
+<% if action == :edit %>
+  <% action_url =  %>
+
+
+<form action="<%= cats_url %>" method="post">
+  <input type='hidden' name = '_method' value = 'PATCH'
+
+  <label for="name">Name</label>
+  <input id="name" type="text" name='cat[name]' value="<%= @cat.name %>">
+
+  <br>
+
+  <label for="birth_date">birth_date</label>
+  <input id="birth_date" type="date" name='cat[birth_date]' value="<%= @cat.birth_date %>">
+
+
+
+  <br>
+  <p>Please select cat's preferred pronouns</p>
+    <input type="radio" id="M_input" name="cat[sex]" value="M">
+    <label for="M_input">he/him/his</label>
+  <br>
+    <input type="radio" id="F_input" name="cat[sex]" value="F">
+    <label for="F_input">she/her/hers</label>
+
+  <br>
+  <label for="color">Color</label>
+  <select name='cat[color]'>
+    <option>--please select--</option>
+    <% @colors.each do |color| %>
+      <option value="<%= color %>"><%= color %></option>
+    <% end %>
+  </select>
+
+  <br>
+
+  <label for="description">Description</label>
+  <br>
+  <textarea name="cat[description]">@cat.description</textarea>
+
+  <input type="submit" value='Submit'>
+</form>

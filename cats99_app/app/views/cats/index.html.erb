@@ -1,0 +1,8 @@
+<h1>  All of the Magical Cats </h1>
+
+<% @cats.each do |cat| %>
+<ul>
+  <li><%= cat.name %></li>
+  <li><%= link_to "Cat details", cat_url(cat) %></li>
+</ul>
+<% end %>
